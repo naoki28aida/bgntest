@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TimeStamp;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -9,15 +10,28 @@ use Illuminate\Support\Facades\Session;
 
 class AuthenticatedSessionController extends Controller
 {
-
-    public function store()
+    public function index()
     {
-        return view('/login');
+        return view('/auth/login');
+    }
+    public function store(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // ログインに成功した場合
+            return redirect()->route('home');
+        } else {
+            // ログインに失敗した場合
+            return back()->withErrors([
+                'login' => 'メールアドレスまたはパスワードが正しくありません。'
+            ]);
+        }
     }
 
     public function destroy(Request $request)
     {
-        Auth::guard(config('fortify.guard', 'web'))->logout();
+        Auth::logout();
 
         $request->session()->invalidate();
 
@@ -25,4 +39,5 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/login');
     }
+
 }

@@ -23,17 +23,12 @@ a{
     margin-left: 90px;
     font-size: 20px;
     font-weight: bold;
-}
-
-.header__logout{
-    margin-right: 30px;
-    margin-left: 90px;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
     background-color: white;
+    border: none;
     cursor: pointer;
 }
+
+
 
 .header__logo {
     flex-grow: 1;
@@ -56,4 +51,8 @@ a{
 .footer__logo {
     font-size: 14px;
     font-weight: bold;
+}
+
+.header__menu:last-child {
+    margin-right: 50px;
 }

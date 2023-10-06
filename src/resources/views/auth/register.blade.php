@@ -63,7 +63,8 @@
 
         <div class="act">
             <div class="act__have">アカウントをお持ちの方はこちら</div>
-            <a class="act__have--in" href="/login">ログイン</a>
+            <a class="act__have--in" href="{{ route('login') }}">ログイン</a>
+
         </div>
     </div>
 @endsection

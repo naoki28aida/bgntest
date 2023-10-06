@@ -14,7 +14,7 @@
         @if(auth()->check())
             <a class="header__menu" href="/">ホーム</a>
             <a class="header__menu" href="/">日付一覧</a>
-            <form action="{{ route('logout') }}" method="POST">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button class="header__menu" type="submit">ログアウト</button>
             </form>
