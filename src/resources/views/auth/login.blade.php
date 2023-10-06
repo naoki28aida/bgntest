@@ -12,7 +12,8 @@
 @endsection
 @section('content')
     <div class="form__content">
-        <form class="form" action="/" method="get">
+        <form class="form" action="/login" method="post">
+            @csrf
             <div class="form__group">
                 <div class="form__group-content">
                     <div class="form__input--text">
