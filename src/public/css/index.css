@@ -1,69 +1,51 @@
-.attendance__alert--success {
-    padding: 10px 30px;
-    border-color: #badbcc;
-    background-color: #d1e7dd;
-    color: #0f5132;
+.body {
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #f7f7f7;
+
 }
 
-.attendance__alert--danger {
-    padding: 10px 0;
-    border-color: #f5c2c7;
-    background-color: #f8d7da;
-    color: #842029;
-}
-
-.attendance__alert--danger ul {
-    margin: 0;
-}
-
-.attendance__panel {
-    margin: 0 auto;
-    width: 70%;
-}
-
-.attendance__button {
-    width: 100%;
+.ttl {
+    padding: 30px;
+    font-size: 24px;
     text-align: center;
 }
 
-.attendance__button-submit {
-    padding: 5px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
+.work{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }
 
-.attendance__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+.work form {
+    flex-basis: calc(50% - 10px); /* 幅を50%に設定し、間隔を追加 */
+    margin: 5px;
 }
 
-.attendance-table {
-    margin: 30px auto;
-    width: 70%;
-    text-align: center;
+
+.work__btn {
+    display: inline-block;
+    margin: 10px 0;
 }
 
-.attendance-table__inner {
-    width: 100%;
+.work__in {
+    width: 100%; /* ボタンを親要素の幅いっぱいに設定 */
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.attendance-table__row {
-    border-bottom: 1px solid #ddd;
+button:hover {
+    opacity: 0.8;
 }
 
-.attendance-table__header {
-    padding: 12px;
-    width: 20%;
-    font-weight: bold;
-}
 
-.attendance-table__item {
-    padding: 12px;
-    width: 20%;
+.disabled {
+    opacity: 0.2;
+    pointer-events: none;  // ボタンを押せないようにする
 }

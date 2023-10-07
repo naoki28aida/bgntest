@@ -4,33 +4,44 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
+@section('ttl')
+    <div class="ttl">{{ Auth::user()->name }}さんお疲れ様です！</div>
+@endsection
+
 @section('content')
-    <div class="attendance__alert">
-        // メッセージ機能わからん
+    <?php
+    $latestBreak = $worktime ? $worktime->breakTimes()->latest('id')->first() : null;
+    $onBreak = $latestBreak && !$latestBreak->end_time;
+    ?>
+
+    <div class="work">
+        <!-- 出勤ボタン -->
+        <form class="work__btn" action="{{ route('attendance.workstart') }}" method="post">
+            @csrf
+            <input type="hidden" name="start_time" value="{{ time() }}">
+            <input type="hidden" name="day" value="{{ now()->format('Y-m-d') }}">
+            <button class="work__in {{ $day || ($worktime && ($worktime->work_end_time || !$worktime->work_start_time)) ? 'disabled' : '' }}" type="submit">出勤開始</button>
+        </form>
+
+        <!-- 出勤終了ボタン -->
+        <form class="work__btn" action="{{ route('attendance.workend') }}" method="post">
+            @csrf
+            <input type="hidden" name="end_time" value="{{ now()->format('Y-m-d') }}">
+            <button class="work__in {{ !$worktime || !$worktime->work_start_time || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">出勤終了</button>
+        </form>
+
+        <!-- 休憩開始ボタン -->
+        <form class="work__btn" action="{{ route('attendance.breakstart') }}" method="post">
+            @csrf
+            <button class="work__in {{ !$worktime || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">休憩開始</button>
+        </form>
+
+        <!-- 休憩終了ボタン -->
+        <form class="work__btn" action="{{ route('attendance.breakend') }}" method="post">
+            @csrf
+            <button class="work__in {{ !$worktime || $worktime->work_end_time || !$onBreak ? 'disabled' : '' }}" type="submit">休憩終了</button>
+
+        </form>
     </div>
 
-    <div class="attendance__content">
-        <div class="attendance__panel">
-            <form class="attendance__button">
-                <button class="attendance__button-submit" type="submit">勤務開始</button>
-            </form>
-            <form class="attendance__button">
-                <button class="attendance__button-submit" type="submit">勤務終了</button>
-            </form>
-        </div>
-        <div class="attendance-table">
-            <table class="attendance-table__inner">
-                <tr class="attendance-table__row">
-                    <th class="attendance-table__header">名前</th>
-                    <th class="attendance-table__header">開始時間</th>
-                    <th class="attendance-table__header">終了時間</th>
-                </tr>
-                <tr class="attendance-table__row">
-                    <td class="attendance-table__item">サンプル太郎</td>
-                    <td class="attendance-table__item">サンプル</td>
-                    <td class="attendance-table__item">サンプル</td>
-                </tr>
-            </table>
-        </div>
-    </div>
 @endsection

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TimeStamp;
+use App\Models\WorkTimes;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class AuthenticatedSessionController extends Controller
     {
         return view('/auth/login');
     }
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $credentials = $request->only('email', 'password');
 

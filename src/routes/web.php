@@ -17,3 +17,9 @@ Route::get('/login', [AuthenticatedSessionController::class, 'index'])->name('lo
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
+Route::post('/attendance/work/start', [DashboardController::class, 'startAttendance'])->name('attendance.workstart');
+Route::post('/attendance/work/end', [DashboardController::class, 'endAttendance'])->name('attendance.workend');
+
+Route::post('/attendance/break/start', [DashboardController::class, 'startBreak'])->name('attendance.breakstart');
+Route::post('/attendance/break/end', [DashboardController::class, 'endBreak'])->name('attendance.breakend');
+

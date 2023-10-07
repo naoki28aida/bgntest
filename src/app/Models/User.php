@@ -5,24 +5,36 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
-    use Notifiable;
+namespace App\Models;
 
-    protected $table = 'users';
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+
+class User extends Model implements Authenticatable
+{
+    use HasFactory, Notifiable, AuthenticatableTrait;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'id',
+        'name',
+        'email',
+        'email_verified_at',
+        'password',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+        'two_factor_confirmed_at',
     ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    protected $dates = ['email_verified_at'];
 
     public function days()
     {
         return $this->hasMany(Day::class);
+    }
+
+    public function worktimes()
+    {
+        return $this->hasMany(Worktime::class);
     }
 }

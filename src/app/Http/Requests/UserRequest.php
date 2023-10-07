@@ -23,10 +23,18 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|unique:users|max:191',
             'password' => 'required|string|min:8|max:191|confirmed',
         ];
+
+        if (request()->is('login')) {
+            $rules['email'] = 'required|string|email|max:191';
+            $rules['password'] = 'required|string|min:8|max:191';
+            unset($rules['name']);
+        }
+
+        return $rules;
     }
 }
