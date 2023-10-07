@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthenticatedSessionController;
 Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 
 // 登録ページ
+Auth::routes();
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
@@ -22,4 +23,3 @@ Route::post('/attendance/work/end', [DashboardController::class, 'endAttendance'
 
 Route::post('/attendance/break/start', [DashboardController::class, 'startBreak'])->name('attendance.breakstart');
 Route::post('/attendance/break/end', [DashboardController::class, 'endBreak'])->name('attendance.breakend');
-
