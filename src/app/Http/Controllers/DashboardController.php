@@ -23,15 +23,13 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        // Dayのレコードを作成
         $day = new Day;
         $day->day = $request->day;
         $day->user_id = $user->id;
         $day->save();
 
-        // Timestampのレコードを作成
-        $worktime = new Worktime;
-        $worktime->work_start_time = now()->format('H:i');
+        $worktime = new WorkTime;
+        $worktime->work_start_time = now()->format('H:i:s');
         $worktime->user_id = $user->id;
         $worktime->day_id = $day->id;
         $worktime->save();
@@ -44,10 +42,10 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $worktime = Worktime::where('user_id', $user->id)->latest('id')->first();
+        $worktime = WorkTime::where('user_id', $user->id)->latest('id')->first();
 
         if ($worktime) {
-            $worktime->work_end_time = now()->format('H:i');
+            $worktime->work_end_time = now()->format('H:i:s');
             $worktime->save();
         }
 
@@ -61,7 +59,7 @@ class DashboardController extends Controller
 
         if ($worktime && !$worktime->work_end_time) {
             $break = new BreakTime;
-            $break->start_time = now()->format('H:i');
+            $break->start_time = now()->format('H:i:s');
             $break->worktime_id = $worktime->id;
             $break->save();
 
@@ -80,7 +78,7 @@ class DashboardController extends Controller
             $lastBreak = $worktime->breakTimes()->latest('id')->first();
 
             if ($lastBreak && !$lastBreak->end_time) {
-                $lastBreak->end_time = now()->format('H:i');
+                $lastBreak->end_time = now()->format('H:i:s');
                 $lastBreak->save();
 
                 return back()->with('message', '休憩終了');
