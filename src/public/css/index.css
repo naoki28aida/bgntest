@@ -9,36 +9,45 @@
 .work{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 0 15px 60px;
 }
 
 .work form {
-    flex-basis: calc(50% - 10px); /* 幅を50%に設定し、間隔を追加 */
-    margin: 5px;
+    flex-basis: calc(50% - 10px);
 }
 
 
 .work__btn {
     display: inline-block;
-    margin: 10px 0;
+}
+
+#work__btn--right{
+    text-align: left;
+}
+
+#work__btn--left{
+    text-align: right;
 }
 
 .work__in {
-    width: 100%; /* ボタンを親要素の幅いっぱいに設定 */
-    height: 150px;
-    border: 2px solid #ddd;
+    width: 70%;
+    height: 200px;
+    margin: 20px 10px 25px;
+    border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     transition: background-color 0.3s;
+    cursor: pointer;
+    background-color: white;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
-
 .disabled {
-    opacity: 0.2;
-    pointer-events: none;  // ボタンを押せないようにする
+    color: lightgray;
+    pointer-events: none;
 }

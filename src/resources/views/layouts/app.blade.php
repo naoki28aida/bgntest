@@ -30,11 +30,9 @@
     @yield('content')
 
 
-
-
 </main>
 <footer class="footer__main">
-    <small class="footer__logo">Atte,inc.</small>
+    <small class="footer__logo">Atte, inc.</small>
 </footer>
 @yield('js')
 </body>

@@ -4,9 +4,6 @@
     ログイン画面
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}"/>
-@endsection
 @section('ttl')
     ログイン
 @endsection

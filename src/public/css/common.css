@@ -8,7 +8,8 @@ a{
     max-width: 100%;
     background-color: white;
     color: black;
-    margin: 10px 20px;
+    margin: 0 20px;
+    align-items: baseline;
 
 }
 
@@ -20,7 +21,7 @@ a{
 }
 
 .header__menu {
-    margin-left: 90px;
+    margin-left: 60px;
     font-size: 20px;
     font-weight: bold;
     background-color: white;
@@ -33,11 +34,19 @@ a{
 .header__logo {
     flex-grow: 1;
     font-size: 30px;
+    margin-left: 40px;
 }
 
 .main{
     max-width: 100%;
     background-color: #eeeeee;
+}
+
+.main__ttl{
+    padding: 60px 0 30px 0;
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
 }
 
 .footer__main {
@@ -57,8 +66,63 @@ a{
     margin-right: 50px;
 }
 
-.ttl {
-    padding: 30px;
-    font-size: 24px;
+.form__input--text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--text input{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 0 10px;
+    background-color: #eeeeee;
+    border: 2px solid #C1C1C1;
+}
+
+.form__button-submit{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #0051ff;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form__content{
     text-align: center;
+}
+
+.form__group{
+    margin-bottom: 30px;
+}
+
+.form__error {
+    background-color: red;
+    color: white;
+    width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.act{
+    padding-bottom: 90px;
+}
+
+.act__have{
+    color: grey;
+    font-size: 14px;
+}
+
+.act__have--in{
+    color: blue;
+    font-weight: bold;
+    font-size: 14px;
 }

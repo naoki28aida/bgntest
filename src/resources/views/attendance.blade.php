@@ -9,11 +9,9 @@
 @endsection
 
 @section('ttl')
-    <div class="ttl">
-        <a href="{{ route('attendance.index', ['date' => $currentDate->copy()->subDay()->format('Y-m-d')]) }}">&lt;</a>
+        <a class="day__btn" href="{{ route('attendance.index', ['date' => $currentDate->copy()->subDay()->format('Y-m-d')]) }}">&lt;</a>
         {{ $currentDate->format('Y-m-d') }}
-        <a href="{{ route('attendance.index', ['date' => $currentDate->copy()->addDay()->format('Y-m-d')]) }}">&gt;</a>
-    </div>
+        <a class="day__btn" href="{{ route('attendance.index', ['date' => $currentDate->copy()->addDay()->format('Y-m-d')]) }}">&gt;</a>
 @endsection
 
 @section('content')

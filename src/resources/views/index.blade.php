@@ -9,7 +9,7 @@
 @endsection
 
 @section('ttl')
-    <div class="ttl">{{ Auth::user()->name }}さんお疲れ様です！</div>
+    {{ Auth::user()->name }}さんお疲れ様です！
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
 
     <div class="work">
         <!-- 出勤ボタン -->
-        <form class="work__btn" action="{{ route('dashboard.workstart') }}" method="post">
+        <form class="work__btn" id="work__btn--left" action="{{ route('dashboard.workstart') }}" method="post">
             @csrf
             <input type="hidden" name="start_time" value="{{ time() }}">
             <input type="hidden" name="day" value="{{ now()->format('Y-m-d') }}">
@@ -28,20 +28,20 @@
         </form>
 
         <!-- 出勤終了ボタン -->
-        <form class="work__btn" action="{{ route('dashboard.workend') }}" method="post">
+        <form class="work__btn" id="work__btn--right" action="{{ route('dashboard.workend') }}" method="post">
             @csrf
             <input type="hidden" name="end_time" value="{{ now()->format('Y-m-d') }}">
             <button class="work__in {{ !$worktime || !$worktime->work_start_time || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">出勤終了</button>
         </form>
 
         <!-- 休憩開始ボタン -->
-        <form class="work__btn" action="{{ route('dashboard.breakstart') }}" method="post">
+        <form class="work__btn" id="work__btn--left" action="{{ route('dashboard.breakstart') }}" method="post">
             @csrf
             <button class="work__in {{ !$worktime || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">休憩開始</button>
         </form>
 
         <!-- 休憩終了ボタン -->
-        <form class="work__btn" action="{{ route('dashboard.breakend') }}" method="post">
+        <form class="work__btn" id="work__btn--right" action="{{ route('dashboard.breakend') }}" method="post">
             @csrf
             <button class="work__in {{ !$worktime || $worktime->work_end_time || !$onBreak ? 'disabled' : '' }}" type="submit">休憩終了</button>
         </form>

@@ -4,9 +4,6 @@
     新規登録画面
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}"/>
-@endsection
 @section('ttl')
     会員登録
 @endsection
