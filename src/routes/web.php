@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\AttendanceController;
 
 // トップページ (ダッシュボード)
 Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
@@ -18,8 +19,10 @@ Route::get('/login', [AuthenticatedSessionController::class, 'index'])->name('lo
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-Route::post('/attendance/work/start', [DashboardController::class, 'startAttendance'])->name('attendance.workstart');
-Route::post('/attendance/work/end', [DashboardController::class, 'endAttendance'])->name('attendance.workend');
+Route::post('/dashboard/work/start', [DashboardController::class, 'startDashboard'])->name('dashboard.workstart');
+Route::post('/dashboard/work/end', [DashboardController::class, 'endDashboard'])->name('dashboard.workend');
 
-Route::post('/attendance/break/start', [DashboardController::class, 'startBreak'])->name('attendance.breakstart');
-Route::post('/attendance/break/end', [DashboardController::class, 'endBreak'])->name('attendance.breakend');
+Route::post('/dashboard/break/start', [DashboardController::class, 'startBreak'])->name('dashboard.breakstart');
+Route::post('/dashboard/break/end', [DashboardController::class, 'endBreak'])->name('dashboard.breakend');
+
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');

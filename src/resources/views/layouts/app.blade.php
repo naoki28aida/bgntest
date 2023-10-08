@@ -12,8 +12,8 @@
     <div class="header__inner">
         <h2 class="header__logo">Atte</h2>
         @if(auth()->check())
-            <a class="header__menu" href="/">ホーム</a>
-            <a class="header__menu" href="/">日付一覧</a>
+            <a class="header__menu" href="{{ route('home') }}">ホーム</a>
+            <a class="header__menu" href="{{ route('attendance.index') }}">日付一覧</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button class="header__menu" type="submit">ログアウト</button>

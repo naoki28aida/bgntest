@@ -19,7 +19,7 @@ class DashboardController extends Controller
 
         return view('index', compact('day', 'worktime'));
     }
-    public function startAttendance(Request $request)
+    public function startDashboard(Request $request)
     {
         $user = Auth::user();
 
@@ -38,7 +38,7 @@ class DashboardController extends Controller
     }
 
 
-    public function endAttendance(Request $request)
+    public function endDashboard(Request $request)
     {
         $user = Auth::user();
 

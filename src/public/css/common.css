@@ -56,3 +56,9 @@ a{
 .header__menu:last-child {
     margin-right: 50px;
 }
+
+.ttl {
+    padding: 30px;
+    font-size: 24px;
+    text-align: center;
+}
