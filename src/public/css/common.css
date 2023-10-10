@@ -37,6 +37,91 @@ a{
     margin-left: 40px;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger__menu {
+    display: flex;
+}
+
+.hamburger__line {
+    width: 30px;
+    height: 3px;
+    background: black;
+    margin: 5px;
+}
+
+.hamburger__menu {
+    display: flex;
+}
+
+@media (min-width: 1001px) {
+    .close-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger__menu {
+        display: block;
+        flex-direction: column;
+        width: 30%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #ffffff;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger__menu.active {
+        transform: translateX(0%);
+    }
+}
+
+@media (max-width: 1000px) {
+    .hamburger__menu a, .hamburger__menu button, .hamburger__menu form button.header__menu {
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        display: block;
+        text-align: center;
+        background-color: #4a5568;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .hamburger__menu {
+        padding: 20px 0;
+    }
+
+    .close-menu {
+        margin: 20px auto;
+    }
+
+    .close-menu {
+        background-color: #4a5568;
+        border: none;
+        box-shadow: none;/
+    }
+
+}
+
+
+
+
+
+
 .main{
     max-width: 100%;
     background-color: #eeeeee;

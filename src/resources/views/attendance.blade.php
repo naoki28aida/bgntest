@@ -9,10 +9,15 @@
 @endsection
 
 @section('ttl')
-        <a class="day__btn" href="{{ route('attendance.index', ['date' => $currentDate->copy()->subDay()->format('Y-m-d')]) }}">&lt;</a>
+    <div class="pagination__main">
+        <a class="day__btn day-link" href="{{ route('attendance.index', ['date' => $currentDate->copy()->subDay()->format('Y-m-d')]) }}">&lt;</a>
         {{ $currentDate->format('Y-m-d') }}
-        <a class="day__btn" href="{{ route('attendance.index', ['date' => $currentDate->copy()->addDay()->format('Y-m-d')]) }}">&gt;</a>
+        <a class="day__btn day-link {{ $currentDate->gte(now()->startOfDay()) ? 'disabled-link' : '' }}" href="{{ route('attendance.index', ['date' => $currentDate->copy()->addDay()->format('Y-m-d')]) }}">&gt;</a>
+    </div>
 @endsection
+
+
+
 
 @section('content')
     @php
@@ -60,7 +65,7 @@
             @endforeach
         </table>
     </div>
-    <div class="pagination-wrapper">
+    <div class="pagination__main">
         {{ $workTimes->appends(['date' => $currentDate->format('Y-m-d')])->links('pagination::bootstrap-4') }}
     </div>
 @endsection
