@@ -22,6 +22,17 @@
     $latestBreak = $worktime ? $worktime->breakTimes()->latest('id')->first() : null;
     $onBreak = $latestBreak && !$latestBreak->end_time;
     ?>
+    <div class="work__status">
+    <div class="work__status--inner">
+        @if($worktime && !$worktime->work_end_time)
+            @if($onBreak)
+                <p>休憩中</p>
+            @else
+                <p>出勤中</p>
+            @endif
+        @endif
+    </div>
+    </div>
 
     <div class="work">
         <!-- 出勤ボタン -->
