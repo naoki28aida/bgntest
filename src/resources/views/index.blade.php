@@ -13,6 +13,11 @@
 @endsection
 
 @section('content')
+    @if (session('message'))
+        <div class="alert-message" id="alert-message">
+            {{ session('message') }}
+        </div>
+    @endif
     <?php
     $latestBreak = $worktime ? $worktime->breakTimes()->latest('id')->first() : null;
     $onBreak = $latestBreak && !$latestBreak->end_time;
@@ -46,5 +51,19 @@
             <button class="work__in {{ !$worktime || $worktime->work_end_time || !$onBreak ? 'disabled' : '' }}" type="submit">休憩終了</button>
         </form>
     </div>
-
+@endsection
+@section('js')
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const alertMessage = document.getElementById('alert-message');
+            if (alertMessage) {
+                setTimeout(function() {
+                    alertMessage.style.opacity = "0";
+                    setTimeout(function() {
+                        alertMessage.remove();
+                    }, 1000);
+                }, 4000); //
+            }
+        });
+    </script>
 @endsection

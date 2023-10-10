@@ -22,6 +22,7 @@
             <nav class="hamburger__menu">
                 <a class="header__menu" href="{{ route('home') }}">ホーム</a>
                 <a class="header__menu" href="{{ route('attendance.index') }}">日付一覧</a>
+                <a class="header__menu" href="{{ route('staff.user') }}">スタッフ一覧</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button class="header__menu" type="submit">ログアウト</button>

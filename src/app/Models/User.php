@@ -2,15 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-
-namespace App\Models;
-
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
 class User extends Model implements Authenticatable
@@ -33,8 +28,8 @@ class User extends Model implements Authenticatable
         return $this->hasMany(Day::class);
     }
 
-    public function worktimes()
+    public function workTimes()
     {
-        return $this->hasMany(Worktime::class);
+        return $this->hasMany(WorkTime::class);
     }
 }

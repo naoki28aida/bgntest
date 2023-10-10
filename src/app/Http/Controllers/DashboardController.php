@@ -34,7 +34,7 @@ class DashboardController extends Controller
         $worktime->day_id = $day->id;
         $worktime->save();
 
-        return back()->with('message', '出勤を開始しました！');
+        return back()->with('message', '出勤を開始しました');
     }
 
 
@@ -49,7 +49,7 @@ class DashboardController extends Controller
             $worktime->save();
         }
 
-        return back()->with('message', '退勤しました！');
+        return back()->with('message', '退勤完了しました');
     }
 
     public function startBreak(Request $request)
@@ -81,7 +81,7 @@ class DashboardController extends Controller
                 $lastBreak->end_time = now()->format('H:i:s');
                 $lastBreak->save();
 
-                return back()->with('message', '休憩終了');
+                return back()->with('message', '休憩がおわりました');
             }
         }
 

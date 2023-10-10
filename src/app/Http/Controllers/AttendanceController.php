@@ -13,10 +13,8 @@ class AttendanceController extends Controller
 {
     public function index(Request $request)
     {
-        // 現在の日付を取得、もしリクエストパラメータに日付があればそれを使用
         $currentDate = $request->has('date') ? Carbon::parse($request->input('date')) : Carbon::now();
 
-        // DBから指定された日の勤務データを取得
         $workTimes = WorkTime::with(['breakTimes', 'user'])
             ->whereHas('day', function ($query) use ($currentDate) {
                 $query->whereDate('day', $currentDate);
@@ -26,6 +24,14 @@ class AttendanceController extends Controller
         return view('attendance', [
             'workTimes' => $workTimes,
             'currentDate' => $currentDate
+        ]);
+    }
+    public function user(Request $request)
+    {
+        $users = User::paginate(5);
+
+        return view('staff', [
+            'users' => $users
         ]);
     }
 }
