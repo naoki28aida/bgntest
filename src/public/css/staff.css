@@ -30,9 +30,13 @@ html {
 .rlt_ttl{
     width: 50px;
     text-align: left;
-    padding: 20px 0;
+    padding: 20px 0 20px 80px;
     font-weight: bold;
-    padding-left: 80px;
+}
+
+.rlt_ttl a {
+    text-decoration: underline;
+    color: blue;
 }
 
 .rlt_ttl--data{

@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\AttendanceController;
 
+
 // トップページ (ダッシュボード)
 Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 
@@ -27,3 +28,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
 Route::get('/staff', [AttendanceController::class, 'user'])->name('staff.user');
+
+Route::get('/staff/individual/{id}', [AttendanceController::class, 'showIndividual'])->name('staff.individual');
+
+

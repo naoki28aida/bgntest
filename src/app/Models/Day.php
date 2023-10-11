@@ -27,5 +27,10 @@ class Day extends Model
         return $this->hasMany(Worktime::class);
     }
 
+    public function work_times()
+    {
+        return $this->hasOne(WorkTime::class, 'day_id', 'id');
+    }
+
 }
 

@@ -26,12 +26,14 @@
 
             @foreach($users as $user)
                 <tr class="sys_menu">
-                    <td class="rlt_ttl">{{ $user->name }}</td>
+                    <td class="rlt_ttl">
+                        <a href="{{ route('staff.individual', ['id' => $user->id]) }}">{{ $user->name }}</a>
+                    </td>
                     <td class="rlt_ttl">{{ \Carbon\Carbon::parse($user->created_at)->format('Y年m月d日') }}</td>
                     <td class="rlt_ttl">
                         @php
                             $latestWorkTime = $user->workTimes()->latest('day_id')->first();
-                            $latestDay = optional($latestWorkTime->day)->day;
+                            $latestDay = $latestWorkTime ? $latestWorkTime->day->day : null;
                         @endphp
                         {{ $latestDay ? Carbon::parse($latestDay)->format('Y年m月d日') : '---' }}
                     </td>

@@ -34,4 +34,26 @@ class AttendanceController extends Controller
             'users' => $users
         ]);
     }
+    public function showIndividual($id, Request $request)
+    {
+        $user = User::with(['days', 'days.work_times', 'days.work_times.break_times'])->find($id);
+
+        if (!$user) {
+            return redirect('/attendance/user')->with('error', 'スタッフ情報が見つかりませんでした。');
+        }
+
+        $year = $request->input('year', now()->year);
+        $month = $request->input('month', now()->month);
+
+        $startOfMonth = Carbon::create($year, $month, 1);
+        $endOfMonth = $startOfMonth->copy()->endOfMonth();
+
+        $user->days = $user->days->filter(function ($day) use ($startOfMonth, $endOfMonth) {
+            $dayDate = Carbon::parse($day->day);
+            return $dayDate->gte($startOfMonth) && $dayDate->lte($endOfMonth);
+        });
+
+        return view('staff.individual', compact('user', 'year', 'month'));
+    }
+
 }

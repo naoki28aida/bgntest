@@ -33,4 +33,9 @@ class WorkTime extends Model
     {
         return $this->hasMany(BreakTime::class, 'worktime_id', 'id');
     }
+
+    public function break_times()
+    {
+        return $this->hasMany(BreakTime::class, 'worktime_id', 'id');
+    }
 }
