@@ -21,6 +21,11 @@ class RegisteredUserController extends Controller
         return view('thanks');
     }
 
+    public function success()
+    {
+        return view('success');
+    }
+
     public function store(UserRequest $request)
     {
         $validatedData = $request->validated();

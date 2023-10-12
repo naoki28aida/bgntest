@@ -8,6 +8,7 @@ use App\Http\Controllers\AttendanceController;
 
 
 // トップページ (ダッシュボード)
+Auth::routes();
 Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 
 Route::post('/dashboard/work/start', [DashboardController::class, 'startDashboard'])->name('dashboard.workstart');
@@ -17,10 +18,10 @@ Route::post('/dashboard/break/start', [DashboardController::class, 'startBreak']
 Route::post('/dashboard/break/end', [DashboardController::class, 'endBreak'])->name('dashboard.breakend');
 
 // 登録ページ
-Auth::routes();
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::get('/thanks', [RegisteredUserController::class, 'thanks'])->name('thanks');
+Route::get('/success', [RegisteredUserController::class, 'success'])->name('success');
+Route::post('/register', [RegisteredUserController::class, 'store']);
 
 // ログインページ
 Route::view('/login', 'auth.login')->name('login');
