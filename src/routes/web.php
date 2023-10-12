@@ -20,9 +20,10 @@ Route::post('/dashboard/break/end', [DashboardController::class, 'endBreak'])->n
 Auth::routes();
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::get('/thanks', [RegisteredUserController::class, 'thanks'])->name('thanks');
 
 // ログインページ
-Route::get('/login', [AuthenticatedSessionController::class, 'index'])->name('login');
+Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 

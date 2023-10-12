@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Session;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function index()
-    {
-        return view('/auth/login');
-    }
     public function store(UserRequest $request)
     {
         $credentials = $request->only('email', 'password');

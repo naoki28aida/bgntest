@@ -16,6 +16,11 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function thanks()
+    {
+        return view('thanks');
+    }
+
     public function store(UserRequest $request)
     {
         $validatedData = $request->validated();
@@ -25,10 +30,9 @@ class RegisteredUserController extends Controller
         $user = User::create($validatedData);
 
         if ($user) {
-            // ユーザーを自動的にログイン
+
             Auth::login($user);
 
-            // 登録後にトップページにリダイレクト
             return redirect()->route('home')->with('success', 'ユーザーが正常に登録されました');
         } else {
             return back()->with('error', 'ユーザーの登録中にエラーが発生しました');
