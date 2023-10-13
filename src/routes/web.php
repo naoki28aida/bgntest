@@ -1,17 +1,24 @@
 <?php
 
+use App\Models\User;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\AttendanceController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 
 // トップページ (ダッシュボード)
-Auth::routes();
-Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
+Auth::routes(['verify' => true]);
+Route::get('/email/verify/{id}/{hash}', function ($id, $hash) {
+    $user = User::find($id);
+    $user->email_verified_at = now();
+    $user->save();
+    return redirect('/success')->with('status', 'メールが確認されました。ログインしてください。');
+})->name('verification.verify');
+
+Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware(['auth', 'verified']);
 
 Route::post('/dashboard/work/start', [DashboardController::class, 'startDashboard'])->name('dashboard.workstart');
 Route::post('/dashboard/work/end', [DashboardController::class, 'endDashboard'])->name('dashboard.workend');
@@ -35,8 +42,5 @@ Route::get('/staff', [AttendanceController::class, 'user'])->name('staff.user');
 
 Route::get('/staff/individual/{id}', [AttendanceController::class, 'showIndividual'])->name('staff.individual');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect()->route('success'); // メール認証後、/success にリダイレクト
-})->middleware(['auth', 'signed'])->name('verification.verify');
+
 

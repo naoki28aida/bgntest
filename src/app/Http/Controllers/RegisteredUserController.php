@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
 
         if ($user) {
             event(new Registered($user));  // 追加: ユーザー登録イベントを発火
-            Auth::login($user);
+
 
             // 変更: ホームページではなくサンクスページにリダイレクト
             return redirect()->route('thanks')->with('success', 'ユーザーが正常に登録されました');

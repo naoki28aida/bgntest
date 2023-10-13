@@ -156,17 +156,17 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.7.0",
-            "version_normalized": "3.7.0.0",
+            "version": "3.7.1",
+            "version_normalized": "3.7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "00d03067f07482f025d41ab55e4ba0db5eca2cdf"
+                "reference": "5b7bd66c9ff58c04c5474ab85edce442f8081cb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/00d03067f07482f025d41ab55e4ba0db5eca2cdf",
-                "reference": "00d03067f07482f025d41ab55e4ba0db5eca2cdf",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5b7bd66c9ff58c04c5474ab85edce442f8081cb2",
+                "reference": "5b7bd66c9ff58c04c5474ab85edce442f8081cb2",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,7 @@
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
-            "time": "2023-09-26T20:56:55+00:00",
+            "time": "2023-10-06T05:06:20+00:00",
             "bin": [
                 "bin/doctrine-dbal"
             ],
@@ -252,7 +252,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.7.0"
+                "source": "https://github.com/doctrine/dbal/tree/3.7.1"
             },
             "funding": [
                 {
@@ -660,8 +660,8 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -716,17 +716,17 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "133f59956c8002448b07a3ff5f4352f3b3de5614"
+                "reference": "bb8784ce913bd46f944b4bd67cd857f40d9cfe68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/133f59956c8002448b07a3ff5f4352f3b3de5614",
-                "reference": "133f59956c8002448b07a3ff5f4352f3b3de5614",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/bb8784ce913bd46f944b4bd67cd857f40d9cfe68",
+                "reference": "bb8784ce913bd46f944b4bd67cd857f40d9cfe68",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
             "suggest": {
                 "symfony/var-dumper": "Required to use the dump method (^6.2)."
             },
-            "time": "2023-09-19T22:43:12+00:00",
+            "time": "2023-10-10T12:55:25+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -774,8 +774,8 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -823,17 +823,17 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "9026700a83b59c8a21f1a9a52ea52a1af9e517cc"
+                "reference": "cde1c0af65175205d839d9d7366ea06e2e154964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/9026700a83b59c8a21f1a9a52ea52a1af9e517cc",
-                "reference": "9026700a83b59c8a21f1a9a52ea52a1af9e517cc",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/cde1c0af65175205d839d9d7366ea06e2e154964",
+                "reference": "cde1c0af65175205d839d9d7366ea06e2e154964",
                 "shasum": ""
             },
             "require": {
@@ -858,7 +858,7 @@
                 "illuminate/filesystem": "Required to use the generator command (^10.0).",
                 "illuminate/queue": "Required to use closures for scheduled jobs (^10.0)."
             },
-            "time": "2023-10-02T18:20:22+00:00",
+            "time": "2023-10-09T14:21:07+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -891,8 +891,8 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -945,8 +945,8 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -996,8 +996,8 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1054,8 +1054,8 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -1121,8 +1121,8 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1170,8 +1170,8 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1221,17 +1221,17 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "c7cf96f64ae6766a85fcd17f46afcae5a6a88744"
+                "reference": "dd3b3275a9dbd30736363f232e6bc2970d7681e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/c7cf96f64ae6766a85fcd17f46afcae5a6a88744",
-                "reference": "c7cf96f64ae6766a85fcd17f46afcae5a6a88744",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/dd3b3275a9dbd30736363f232e6bc2970d7681e9",
+                "reference": "dd3b3275a9dbd30736363f232e6bc2970d7681e9",
                 "shasum": ""
             },
             "require": {
@@ -1259,7 +1259,7 @@
                 "symfony/var-dumper": "Required to use the dd function (^6.2).",
                 "vlucas/phpdotenv": "Required to use the Env class and env helper (^5.4.1)."
             },
-            "time": "2023-09-21T20:37:39+00:00",
+            "time": "2023-10-06T13:41:04+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1295,8 +1295,8 @@
         },
         {
             "name": "illuminate/translation",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1349,17 +1349,17 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
-                "reference": "915facef589cd37e4701febcd9acfab555615bb1"
+                "reference": "c40a641bfc0854326a1b9a758f4295cdeb823522"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/validation/zipball/915facef589cd37e4701febcd9acfab555615bb1",
-                "reference": "915facef589cd37e4701febcd9acfab555615bb1",
+                "url": "https://api.github.com/repos/illuminate/validation/zipball/c40a641bfc0854326a1b9a758f4295cdeb823522",
+                "reference": "c40a641bfc0854326a1b9a758f4295cdeb823522",
                 "shasum": ""
             },
             "require": {
@@ -1380,7 +1380,7 @@
             "suggest": {
                 "illuminate/database": "Required to use the database presence verifier (^10.0)."
             },
-            "time": "2023-09-26T21:22:43+00:00",
+            "time": "2023-10-10T12:56:32+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1413,17 +1413,17 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.28.0",
+            "version_normalized": "10.28.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "7bf80422ba95fdd664e8a827b6f43716ef459f14"
+                "reference": "c1eacdb5255a0f332c1654e8758e13af6c6a4e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/7bf80422ba95fdd664e8a827b6f43716ef459f14",
-                "reference": "7bf80422ba95fdd664e8a827b6f43716ef459f14",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/c1eacdb5255a0f332c1654e8758e13af6c6a4e0d",
+                "reference": "c1eacdb5255a0f332c1654e8758e13af6c6a4e0d",
                 "shasum": ""
             },
             "require": {
@@ -1437,7 +1437,7 @@
                 "illuminate/support": "^10.0",
                 "php": "^8.1"
             },
-            "time": "2023-09-28T13:43:11+00:00",
+            "time": "2023-10-05T13:03:55+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
