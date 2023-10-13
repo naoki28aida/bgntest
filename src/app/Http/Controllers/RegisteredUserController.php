@@ -7,6 +7,10 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use App\Mail\SimpleVerificationMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Session;
 
 class RegisteredUserController extends Controller
 {
@@ -33,13 +37,17 @@ class RegisteredUserController extends Controller
         $user = User::create($validatedData);
 
         if ($user) {
-            event(new Registered($user));  // 追加: ユーザー登録イベントを発火
+            Session::put('last_registered_user_id', $user->id);
+        }
+
+        if ($user) {
+            event(new Registered($user));
 
 
-            // 変更: ホームページではなくサンクスページにリダイレクト
-            return redirect()->route('thanks')->with('success', 'ユーザーが正常に登録されました');
-        } else {
-            return back()->with('error', 'ユーザーの登録中にエラーが発生しました');
+            $url = URL::signedRoute('verification.verify', ['id' => $user->id, 'hash' => sha1($user->email)]);
+            Mail::to($user->email)->send(new SimpleVerificationMail($url));
+
+            return redirect()->route('thanks');
         }
     }
 }

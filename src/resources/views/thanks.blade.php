@@ -16,10 +16,26 @@
 <div class="thanks">
     <p class="thanks__message">ご登録いただいたメールに本登録用のURLが届いております。</p>
     <p class="thanks__message">URLをクリックして本登録の方を完了してください。</p>
-
-    <div class="act">
-        <div class="act__have">ログインはこちら</div>
-        <a class="act__have--in" href="{{ route('login') }}">ログイン</a>
+    @if (session('status'))
+        <div id="re__message">
+            {{ session('status') }}
+        </div>
+    @endif
+        <div class="re__message--form"><form class="form" method="POST" action="{{ route('verification.resend') }}">
+            @csrf
+            <button type="submit">確認メールを再送</button>
+        </form></div>
     </div>
-</div>
+@endsection
+@section('js')
+    <script>document.addEventListener('DOMContentLoaded', function() {
+            const flashMessage = document.getElementById('re__message');
+            if (flashMessage) {
+                flashMessage.style.textAlign = 'center';
+                flashMessage.style.fontSize = '20px';
+                setTimeout(() => {
+                    flashMessage.style.display = 'none';
+                }, 3000);
+            }
+        });</script>
 @endsection

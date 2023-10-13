@@ -1,5 +1,8 @@
 .thanks{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .thanks__message{
@@ -9,3 +12,32 @@
 .thanks__message:last-of-type{
     padding-bottom: 40px;
 }
+
+.form button{
+    margin: 20px 40px;
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+#re__message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        width: 300px;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+}
+
+.re__message--form {
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+}
+

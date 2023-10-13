@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Notifications\VerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -29,5 +30,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function workTimes()
     {
         return $this->hasMany(WorkTime::class);
+    }
+    public function sendEmailVerificationNotification()
+    {
+        // Do nothing, disable the default email verification notification.
     }
 }
