@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\AttendanceController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 
 
 // トップページ (ダッシュボード)
@@ -33,4 +35,8 @@ Route::get('/staff', [AttendanceController::class, 'user'])->name('staff.user');
 
 Route::get('/staff/individual/{id}', [AttendanceController::class, 'showIndividual'])->name('staff.individual');
 
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect()->route('success'); // メール認証後、/success にリダイレクト
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
