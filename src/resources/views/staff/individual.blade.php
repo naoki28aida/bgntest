@@ -27,22 +27,23 @@
 
 @section('content')
     <div class="table-main">
-        @php
-            $currentMonth = now()->startOfMonth();
-            $endOfMonth = now()->endOfMonth();
-            $dates = [];
-            $totalWorkTime = 0;
-            $totalBreakTime = 0;
+        <div class="table-main">
+            @php
+                $currentMonth = \Carbon\Carbon::create($year, $month, 1)->startOfMonth();
+                $endOfMonth = \Carbon\Carbon::create($year, $month, 1)->endOfMonth();
+                $dates = [];
+                $totalWorkTime = 0;
+                $totalBreakTime = 0;
 
-            while ($currentMonth->lte($endOfMonth)) {
-                $dates[] = $currentMonth->copy();
-                $currentMonth->addDay();
-            }
+                while ($currentMonth->lte($endOfMonth)) {
+                    $dates[] = $currentMonth->copy();
+                    $currentMonth->addDay();
+                }
 
-            $recordedDays = collect($user->days)->keyBy(function($date) {
-                return $date->day;
-            });
-        @endphp
+                $recordedDays = collect($user->days)->keyBy(function($date) {
+                    return $date->day;
+                });
+            @endphp
 
         <table>
             <thead>
