@@ -34,8 +34,6 @@ html ,button{
     cursor: pointer;
 }
 
-
-
 .header__logo {
     flex-grow: 1;
     font-size: 30px;
@@ -122,14 +120,10 @@ html ,button{
 
 }
 
-
-
-
-
-
 .main{
     max-width: 100%;
     background-color: #eeeeee;
+    padding-bottom: 20px;
 }
 
 .main__ttl{
@@ -203,7 +197,7 @@ html ,button{
 
 
 .act{
-    padding-bottom: 90px;
+    padding-bottom: 40px;
 }
 
 .act__have{

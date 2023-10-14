@@ -32,6 +32,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/staff/individual/{id}', [AttendanceController::class, 'showIndividual'])->name('staff.individual');
 });
 
+// 独自のパスワード再設定関連のルーティング
+Route::middleware(['guest'])->group(function () {
+    Route::get('/forgot-password', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/forgot-password', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('/reset-password/{token}', 'App\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('/reset-password', 'App\Http\Controllers\Auth\ResetPasswordController@reset')->name('password.update');
+});
+
 Route::get('/email/verify/{id}/{hash}', function ($id, $hash) {
     $user = User::find($id);
     $user->email_verified_at = now();

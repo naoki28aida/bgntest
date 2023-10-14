@@ -35,7 +35,6 @@
     </div>
 
     <div class="work">
-        <!-- 出勤ボタン -->
         <form class="work__btn" id="work__btn--left" action="{{ route('dashboard.workstart') }}" method="post">
             @csrf
             <input type="hidden" name="start_time" value="{{ time() }}">
@@ -43,38 +42,21 @@
             <button class="work__in {{ $day || ($worktime && ($worktime->work_end_time || !$worktime->work_start_time)) ? 'disabled' : '' }}" type="submit">出勤開始</button>
         </form>
 
-        <!-- 出勤終了ボタン -->
         <form class="work__btn" id="work__btn--right" action="{{ route('dashboard.workend') }}" method="post">
             @csrf
             <input type="hidden" name="end_time" value="{{ now()->format('Y-m-d') }}">
             <button class="work__in {{ !$worktime || !$worktime->work_start_time || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">出勤終了</button>
         </form>
 
-        <!-- 休憩開始ボタン -->
         <form class="work__btn" id="work__btn--left" action="{{ route('dashboard.breakstart') }}" method="post">
             @csrf
             <button class="work__in {{ !$worktime || $worktime->work_end_time || $onBreak ? 'disabled' : '' }}" type="submit">休憩開始</button>
         </form>
 
-        <!-- 休憩終了ボタン -->
         <form class="work__btn" id="work__btn--right" action="{{ route('dashboard.breakend') }}" method="post">
             @csrf
             <button class="work__in {{ !$worktime || $worktime->work_end_time || !$onBreak ? 'disabled' : '' }}" type="submit">休憩終了</button>
         </form>
     </div>
-@endsection
-@section('js')
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const alertMessage = document.getElementById('alert-message');
-            if (alertMessage) {
-                setTimeout(function() {
-                    alertMessage.style.opacity = "0";
-                    setTimeout(function() {
-                        alertMessage.remove();
-                    }, 1000);
-                }, 4000); //
-            }
-        });
-    </script>
+    <script src="{{ asset('js/index_popup.js') }}"></script>
 @endsection

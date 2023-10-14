@@ -4,4 +4,4 @@
 
 {{ $url }}
 
-株式会社Atte
+Atte

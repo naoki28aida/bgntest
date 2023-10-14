@@ -49,6 +49,19 @@ class UserRequest extends FormRequest
             $rules['password'] = 'required|string|min:8|max:191';
             unset($rules['name']);
         }
+        if (request()->is('reset-password')) {
+            $rules['email'] = [
+                'required',
+                'string',
+                'email',
+                'max:191',
+                Rule::exists('users')->where(function ($query) {
+                    return $query->where('email_verified_at', '!=', null);
+                }),
+            ];
+            $rules['password'] = 'required|string|min:8|max:191|confirmed';
+            unset($rules['name']);
+        }
 
         return $rules;
     }

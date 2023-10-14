@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -31,8 +32,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(WorkTime::class);
     }
+
     public function sendEmailVerificationNotification()
     {
-        // Do nothing, disable the default email verification notification.
+        // デフォルトの確認メール無効化
     }
+    public function sendPasswordResetNotification($token)
+    {
+        $url = URL::signedRoute('password.reset', ['token' => $token]);
+
+        Mail::to($this->email)->send(new \App\Mail\SimpleResetPasswordMail($url));
+    }
+
 }

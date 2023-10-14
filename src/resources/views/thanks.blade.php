@@ -26,16 +26,5 @@
             <button type="submit">確認メールを再送</button>
         </form></div>
     </div>
-@endsection
-@section('js')
-    <script>document.addEventListener('DOMContentLoaded', function() {
-            const flashMessage = document.getElementById('re__message');
-            if (flashMessage) {
-                flashMessage.style.textAlign = 'center';
-                flashMessage.style.fontSize = '20px';
-                setTimeout(() => {
-                    flashMessage.style.display = 'none';
-                }, 3000);
-            }
-        });</script>
+<script src="{{ asset('js/thanks.js') }}"></script>
 @endsection
