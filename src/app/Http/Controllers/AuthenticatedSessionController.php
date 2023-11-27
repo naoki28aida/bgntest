@@ -6,7 +6,6 @@ use App\Models\WorkTimes;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class AuthenticatedSessionController extends Controller
 {

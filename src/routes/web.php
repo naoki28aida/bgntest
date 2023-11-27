@@ -44,8 +44,8 @@ Route::get('/email/verify/{id}/{hash}', function ($id, $hash) {
     $user = User::find($id);
     $user->email_verified_at = now();
     $user->save();
-    return redirect('/success')->with('status', 'メールが確認されました。ログインしてください。');
-})->name('verification.verify');
+    return redirect('/success')->name('verification.verify');
+});
 
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);

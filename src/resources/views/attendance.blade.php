@@ -16,9 +16,6 @@
     </div>
 @endsection
 
-
-
-
 @section('content')
     @php
         use Carbon\Carbon;
@@ -35,7 +32,7 @@
 
             @foreach ($workTimes as $workTime)
                 @php
-                    // 休憩時間を秒単位で計算
+
                     $breakDurationSeconds = $workTime->breakTimes->sum(function($break) {
                         $start = Carbon::parse($break->start_time);
                         $end = Carbon::parse($break->end_time);
@@ -46,7 +43,6 @@
                     $seconds = $breakDurationSeconds % 60;
                     $breakDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
 
-                    // 勤務時間を秒単位で計算
                     $workStart = Carbon::parse($workTime->work_start_time);
                     $workEnd = Carbon::parse($workTime->work_end_time);
                     $workDurationSeconds = $workEnd->diffInSeconds($workStart) - $breakDurationSeconds;
